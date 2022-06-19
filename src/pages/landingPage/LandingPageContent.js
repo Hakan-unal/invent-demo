@@ -12,7 +12,7 @@ import { SearchOutlined } from '@ant-design/icons';
 const LandingPageContent = (props) => {
   const [loading, setLoading] = useState(true)
   const [tableData, setTableData] = useState([])
-  const [searchValue, setSearchValue] = useState("")
+  const [searchValue, setSearchValue] = useState("pokemon")
   const [hookTestData, setHookTestData] = useLocalStorage("movies", [])
 
 
@@ -21,7 +21,7 @@ const LandingPageContent = (props) => {
 
 
   const handleGetData = () => {
-    fetch(" http://www.omdbapi.com/?s=sta&apikey=" + apikey)
+    fetch(" http://www.omdbapi.com/?s=pokemon&apikey=" + apikey)
       .then(response => response.json())
       .then(data => {
         const tempArr = data.Search.map((movie, index) => {
